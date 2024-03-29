@@ -14,12 +14,12 @@ def is_enabled(value, default):
 
 
 class Config(object):
-    API_ID = int(os.environ.get("API_ID"))
-    API_HASH = os.environ.get("API_HASH")
-    BOT_TOKEN = os.environ.get("BOT_TOKEN")
+    API_ID = 3845818
+    API_HASH = "95937bcf6bc0938f263fc7ad96959c6d"
+    BOT_TOKEN = "6472282948:AAGFleF0tNjrvwt4s3lirRkgxN_mGSLjIsw"
     DATABASE_NAME = os.environ.get("DATABASE_NAME", "tg_bot")
-    DATABASE_URL = os.environ.get("DATABASE_URL", 'mongodb+srv://Lovely:Lovely@cluster0.fsid0.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
-    OWNER_ID = int(os.environ.get("OWNER_ID"))
+    DATABASE_URL = "mongodb+srv://hevc:sucks@cluster0.mdnim6a.mongodb.net/?retryWrites=true&w=majority"
+    OWNER_ID = 6542409825
     LOG_CHANNEL = int(os.environ.get("LOG_CHANNEL", "0"))
 
     # optional
