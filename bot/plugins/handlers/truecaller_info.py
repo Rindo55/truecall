@@ -55,9 +55,12 @@ Email: {result["data"]["data"][0]["internetAddresses"][0]["id"] if result["data"
 @Client.on_message(filters.private)
 async def lookup_number(bot, message):
     if message.text.startswith("/lookup"):
-        number = message.text.replace("/lookup", "").strip()
-        if number.isdigit():
-            output = subprocess.check_output(['truecallerjs', '-s', number, '--json']).decode('utf-8')
+        input_number = message.text.replace("/lookup", "").strip()
+        number = ''.join(filter(str.isdigit, input_number))
+        
+        if len(number) >= 7:  # Assuming Indian phone numbers have at least 10 digits
+            output = subprocess.check_output(['truecallerjs', '-s', '+' + number, '--json']).decode('utf-8')
+    
             await message.reply(output)
         else:
             await message.reply("Invalid phone number format.")
