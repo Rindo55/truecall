@@ -64,7 +64,6 @@ async def lookup_number(bot, message):
     else:
         await message.reply("Send /lookup followed by the phone number to look up.")
 
-bot.run()
 def html_to_markdown(html_content):
     converter = html2text.HTML2Text()
     converter.body_width = 0  # Set body_width to 0 to disable line wrapping
