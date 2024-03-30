@@ -37,6 +37,7 @@ async def truecaller_info(client: Client, message: Message):
             score_Percent = Score*100
         else:
             pass
+        kayo = result["data"]
         text = f"""Information found on Truecaller for {ask.text}:
         
 Name: {result["data"]["data"][0]["name"]}
@@ -45,7 +46,7 @@ Carrier: {result["data"]["data"][0]["phones"][0]["carrier"] if result["data"]["d
 Address: {result["data"]["data"][0]["addresses"][0]["city"] if result["data"]["data"][0]["addresses"] else None} 
 Email: {result["data"]["data"][0]["internetAddresses"][0]["id"] if result["data"]["data"][0]["internetAddresses"] else None}
 """
-        await txt.edit(text=text, disable_web_page_preview=True)
+        await txt.edit(text=f"{text}\n{kayo}", disable_web_page_preview=True)
     except Exception as e:
         traceback.print_exc()
         await txt.edit(f"Error: {e}")
